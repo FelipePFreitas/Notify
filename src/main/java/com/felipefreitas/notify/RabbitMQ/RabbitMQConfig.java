@@ -1,7 +1,8 @@
 package com.felipefreitas.notify.RabbitMQ;
 
-import org.hibernate.type.format.jackson.Jackson3JsonFormatMapper;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.support.converter.JacksonJsonMessageConverter;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,8 +15,9 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public Jackson3JsonFormatMapper jackson3JsonFormatMapper() {
-        return new Jackson3JsonFormatMapper();
-    }
+       public MessageConverter messageConverter() {
+           // Este é o cara que dita para o RabbitTemplate e @RabbitListener: "usem JSON!"
+           return new JacksonJsonMessageConverter();
+       }
 
 }

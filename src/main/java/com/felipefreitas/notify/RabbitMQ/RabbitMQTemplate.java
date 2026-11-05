@@ -1,7 +1,6 @@
 package com.felipefreitas.notify.RabbitMQ;
 
 import com.felipefreitas.notify.dto.ClientEvent;
-import com.felipefreitas.notify.dto.ClienteDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Async;
